@@ -1,0 +1,75 @@
+body {                                   /* Основной фон страницы */
+    display: flex;                       /* Включаем flex-раскладку */
+    justify-content: center;             /* Центрируем по горизонтали */
+    align-items: center;                 /* Центрируем по вертикали */
+    height: 100vh;                       /* Высота на весь экран */
+    margin: 0;                           /* Убираем стандартные отступы */
+    font-family: Arial, sans-serif;      /* Шрифт по умолчанию */
+}
+
+.calculator {                            /* Основной блок калькулятора */
+    border: 1px solid #ccc;              /* Граница вокруг калькулятора */
+    border-radius: 10px;                 /* Закругленные углы */
+    padding: 20px;                       /* Внутренние отступы */
+    width: 250px;                        /* Фиксированная ширина */
+    background-color: #9b9494;           /* Фоновый цвет */
+}
+
+.display {                               /* Поле вывода результатов */
+    width: 100%;                         /* Ширина на весь блок */
+    height: 50px;                        /* Фиксированная высота */
+    margin-bottom: 15px;                 /* Отступ снизу */
+    text-align: right;                   /* Текст по правому краю */
+    font-size: 24px;                     /* Крупный шрифт */
+    padding: 5px;                        /* Внутренние отступы */
+    box-sizing: border-box;              /* Учет padding в ширине */
+    border: 1px solid #ddd;              /* Граница поля */
+    background-color: #fff;              /* Белый фон */
+}
+
+.buttons {                               /* Контейнер для кнопок */
+    display: grid;                       /* Используем grid-раскладку */
+    grid-template-columns: repeat(4, 1fr); /* 4 колонки */
+    gap: 10px;                           /* Расстояние между кнопками */
+}
+
+button {                                 /* Базовые стили кнопок */
+    height: 50px;                        /* Фиксированная высота */
+    font-size: 18px;                     /* Размер шрифта */
+    border: none;                        /* Без границы */
+    border-radius: 5px;                  /* Закругленные углы */
+    background-color: #f0f0f0;           /* Цвет фона */
+    cursor: pointer;                     /* Курсор-указатель */
+    transition: background-color 0.2s;   /* Плавное изменение цвета */
+}
+
+button:hover {                           /* Состояние при наведении */
+    background-color: #e0e0e0;           /* Изменение цвета */
+}
+
+.operator {                              /* Кнопки операторов */
+    background-color: #ff9500;           /* Оранжевый фон */
+    color: white;                        /* Белый текст */
+}
+
+.operator:hover {                        /* Операторы при наведении */
+    background-color: #e68600;           /* Темнее оранжевый */
+}
+
+.equals {                                /* Кнопка "равно" */
+    background-color: #28a745;           /* Зеленый фон */
+    color: white;                        /* Белый текст */
+}
+
+.equals:hover {                          /* "Равно" при наведении */
+    background-color: #218838;           /* Темнее зеленый */
+}
+
+.clear {                                 /* Кнопки очистки */
+    background-color: #dc3545;           /* Красный фон */
+    color: white;                        /* Белый текст */
+}
+
+.clear:hover {                           /* Очистка при наведении */
+    background-color: #c82333;           /* Темнее красный */
+}
