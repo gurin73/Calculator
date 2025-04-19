@@ -33,17 +33,31 @@ function clearLast() {
 
 // Функция вычисления результата
 function calculate() {
-  try {
-      // Проверяем, есть ли что вычислять
-      if (display.value === '') return;
+    try {
+        // Проверяем, есть ли что вычислять
+        if (display.value === '') return;
         
-      // Заменяем × на * и ÷ на / для корректного вычисления
-      let expression = display.value.replace(/×/g, '*').replace(/÷/g, '/');
-      // Вычисляем результат
-      const result = eval(expression);
-      // Выводим результат, заменяя точку на запятую (для русского формата)
-      display.value = result.toString().replace(/\./g, ',');
-  } catch (e) {
-      display.value = 'Ошибка';
-  }
+        // Заменяем × на * и ÷ на / для корректного вычисления
+        let expression = display.value.replace(/×/g, '*').replace(/÷/g, '/');
+        
+        // Проверка деления на ноль
+        if (expression.includes('/0') && !expression.includes('/0.')) {
+            display.value = 'Ошибка: деление на 0';
+            return;
+        }
+        
+        // Вычисляем результат
+        const result = eval(expression);
+        
+        // Проверка на бесконечность (например, при делении на очень маленькое число)
+        if (!isFinite(result)) {
+            display.value = 'Ошибка: деление на 0';
+            return;
+        }
+        
+        // Выводим результат, заменяя точку на запятую (для русского формата)
+        display.value = result.toString().replace(/\./g, ',');
+    } catch (e) {
+        display.value = 'Ошибка';
+    }
 }
